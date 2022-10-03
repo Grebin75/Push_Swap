@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:02 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 17:08:48 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:19:55 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ void	rmnode(t_list **list, int n)
 // Remove list.
 void	rmlist(t_list **list)
 {
-	while (list)
-		rmnode(list, listsize(*list) - 1);
+	while (*list)
+		rmnode(list, 0);
 }
