@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   listutils_01.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:02 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/09/28 16:41:32 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:08:48 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pushswap.h"
+#include "../includes/lists.h"
 
+// Create a new node and return pointer to new node.
 t_list	*createnode(int data)
 {
 	t_list	*objs;
@@ -24,6 +25,7 @@ t_list	*createnode(int data)
 	return (objs);
 }
 
+// Add a node to the start and return first node.
 t_list	*addtostart(t_list **list, t_list *new)
 {
 	if (!new)
@@ -31,37 +33,50 @@ t_list	*addtostart(t_list **list, t_list *new)
 	if (!list)
 		*list = new;
 	else
-		new->data = *list;
+	{
+		new->next = *list;
 		*list = new;
+	}
 	return (new);
 }
+
+// Add a node to the end and return last node.
 t_list	*addtolast(t_list **list, t_list *new)
 {
 	t_list	*temp;
 
-	if (list)
+	if (*list)
 	{
-		if (*list)
-		{
-			temp = *list;
-			while (temp->next)
-				temp = temp->next;
-			temp->next = new;
-		}
-		else
-			*list = new;
+		temp = *list;
+		while (temp->next)
+			temp = temp->next;
+		temp->next = new;
+		temp = temp->next;
 	}
+	else
+		*list = new;
 	return (temp);
 }
 
-/* t_list *lastobj(t_list **list)
+// Remove a node on a specific position.
+void	rmnode(t_list **list, int n)
 {
-	t_list *temp;
+	t_list	*temp;
 
-	if(!*list)
-		return (NULL);
-	temp = *list;
-	while (temp->next)
-		temp = temp->next;
-	return (temp);
-} */
+	temp = selectnode(*list, n);
+	if (!temp)
+		return ;
+	if (n > 0)
+		(selectnode(*list, n - 1))->next = selectnode(*list, n + 1);
+	if (n == 0)
+		(*list) = (*list)->next;
+	if (temp)
+		free(temp);
+}
+
+// Remove list.
+void	rmlist(t_list **list)
+{
+	while (list)
+		rmnode(list, listsize(*list) - 1);
+}
