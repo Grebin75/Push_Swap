@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:20:03 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 16:42:31 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:22:28 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ void	ra(t_list **a, int true)
 	lastnode(*a)->next = temp;
 	temp->next = NULL;
 	if (true)
-	write(1, "ra\n", 3);
+		write(1, "ra\n", 3);
 }
-
 
 // Shift up all nodes by 1 on list b.
 // The first element becomes the last one.

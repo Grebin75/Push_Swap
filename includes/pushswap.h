@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:54 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 15:57:15 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 15:39:30 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "lists.h"
+
+typedef struct s_stack	t_stack;
+
+struct s_stack
+{
+	t_list	*a;
+	t_list	*b;
+};
 
 // PUSH
 void	pa(t_list **a, t_list **b, int true);
@@ -36,4 +44,9 @@ void	rr(t_list **a, t_list **b);
 void	rra(t_list **a, int true);
 void	rrb(t_list **b, int true);
 void	rrr(t_list **a, t_list **b);
+
+// UTILS
+int		argreader(char *num);
+void	exitprog(int c);
+t_list	**stack(char c);
 #endif

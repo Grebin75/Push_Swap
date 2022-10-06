@@ -6,35 +6,41 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:51:46 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 17:18:55 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 16:58:27 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-int	main(void)
+void	exitprog(int n)
 {
-	t_list *a, *b;
-	int i = -1;
-	a = NULL;
-	b = NULL;
-	(void)b;
-	while (0 && ++i < 100)
-		printf("NODE: %i\n", addtolast(&a, createnode(i))->data);
-	addtolast(&a, createnode(6));
-	addtolast(&a, createnode(12));
-	addtolast(&a, createnode(147));
-	addtolast(&a, createnode(234));
-	printf("%i\n", listsize(a));
-	printf("FIRST: %i\n", selectnode(a, 0)->data);
-	printf("SECOND: %i\n", selectnode(a, 1)->data);
-	printf("THIRD: %i\n", selectnode(a, 2)->data);
-	printf("LAST: %i\n", lastnode(a)->data);
-	rra(&a, 1);
-	printf("FIRST AFTER RRA: %i\n", selectnode(a, 0)->data);
-	printf("SECOND AFTER RRA: %i\n", selectnode(a, 1)->data);
-	printf("THIRD AFTER RRA: %i\n", selectnode(a, 2)->data);
-	printf("LAST AFTER RRA: %i\n", lastnode(a)->data);
-	//printf("FIRST: %i, SECOND: %i" ,selectnode(a, 0), );
-	rmlist(&a);
+	if (n)
+		write(2, "Error\n", 7);
+	rmlist(stack(0));
+	rmlist(stack(1));
+	exit (0);
+}
+
+t_list	**stack(char c)
+{
+	static t_stack	stack;
+
+	if (c == 0)
+		return (&stack.a);
+	if (c == 1)
+		return (&stack.b);
+	return (NULL);
+}
+
+int	main(int argc, char **argv)
+{
+	int		i;
+
+	i = 0;
+	if (argc == 1)
+		exitprog(1);
+	while (argv[++i])
+		addtolast(stack(0), createnode(argreader(argv[i])));
+	
+	exitprog(0);
 }

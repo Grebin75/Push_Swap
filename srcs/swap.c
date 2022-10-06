@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 14:34:27 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 17:02:22 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:24:25 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,9 @@ void	sa(t_list **list, int true)
 {
 	if (!*list || !(*list)->next)
 		return ;
-	(*list)->data^=(*list)->next->data;
-	(*list)->next->data^=(*list)->data;
-	(*list)->data^=(*list)->next->data;
-	/*t_list	*temp;
-
-	if (!*list || !(*list)->next)
-		return ;
-	temp = (*list)->next;
-	(*list)->next = temp->next;
-	temp->next = (*list);
-	(*list) = temp;*/
+	(*list)->data ^= (*list)->next->data;
+	(*list)->next->data ^= (*list)->data;
+	(*list)->data ^= (*list)->next->data;
 	if (true)
 		write(1, "sa\n", 3);
 }
@@ -37,17 +29,9 @@ void	sb(t_list **list, int true)
 {
 	if (!*list || !(*list)->next)
 		return ;
-	(*list)->data^=(*list)->next->data;
-	(*list)->next->data^=(*list)->data;
-	(*list)->data^=(*list)->next->data;
-	/* t_list	*temp;
-
-	if (!*list || !(*list)->next)
-		return ;
-	temp = (*list)->next;
-	(*list)->next = temp->next;
-	temp->next = (*list);
-	(*list) = temp; */
+	(*list)->data ^= (*list)->next->data;
+	(*list)->next->data ^= (*list)->data;
+	(*list)->data ^= (*list)->next->data;
 	if (true)
 		write(1, "sb\n", 3);
 }

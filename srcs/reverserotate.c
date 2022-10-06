@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:49:24 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 17:18:40 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/06 12:29:31 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,16 @@ void	rra(t_list **a, int true)
 // The last node becomes the first one.
 void	rrb(t_list **b, int true)
 {
-	(void)b;
-	(void)true;
-/*
+	t_list	*temp;
+
+	if (!*b || !(*b)->next)
+		return ;
+	temp = selectnode(*b, listsize(*b) - 2);
+	temp->next->next = *b;
+	*b = temp->next;
+	temp->next = NULL;
 	if (true)
-		write(1, "rrb\n", 4); */
+		write(1, "rrb\n", 4);
 }
 
 // Shift down all nodes of both lists by 1.
