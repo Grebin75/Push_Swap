@@ -6,6 +6,7 @@ SRCS = $(SRCS_DIR)/pushswap.c \
 	$(SRCS_DIR)/rotate.c \
 	$(SRCS_DIR)/reverserotate.c \
 	$(SRCS_DIR)/pwutils.c \
+	$(SRCS_DIR)/sort.c \
 
 SRCS_DIR = srcs
 

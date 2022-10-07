@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:13:43 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 15:37:16 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:45:34 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	listsize(t_list *list)
 	return (++i);
 }
 
-// Return obj on n position, return *list if n node dont exist.
-t_list	*selectnode(t_list *list, int n)
+// Return node on n position, return *list if n node dont exist.
+t_list	*node(t_list *list, int n)
 {
 	t_list	*temp;
 

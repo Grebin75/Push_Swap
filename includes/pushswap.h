@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:54 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 15:39:30 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:53:37 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "lists.h"
+# include <limits.h>
 
 typedef struct s_stack	t_stack;
 
@@ -44,6 +45,12 @@ void	rr(t_list **a, t_list **b);
 void	rra(t_list **a, int true);
 void	rrb(t_list **b, int true);
 void	rrr(t_list **a, t_list **b);
+
+// SORT
+void	sort2(t_list **a);
+void	sort3(t_list **a);
+void	sort4(t_list **a, t_list **b);
+void	sort5(t_list **a, t_list **b);
 
 // UTILS
 int		argreader(char *num);

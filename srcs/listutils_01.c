@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:02 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/03 17:19:55 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/07 12:19:14 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ void	rmnode(t_list **list, int n)
 {
 	t_list	*temp;
 
-	temp = selectnode(*list, n);
+	temp = node(*list, n);
 	if (!temp)
 		return ;
 	if (n > 0)
-		(selectnode(*list, n - 1))->next = selectnode(*list, n + 1);
+		(node(*list, n - 1))->next = node(*list, n + 1);
 	if (n == 0)
 		(*list) = (*list)->next;
 	if (temp)

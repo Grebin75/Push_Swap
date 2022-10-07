@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:49:24 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 12:29:31 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/07 12:19:40 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	rra(t_list **a, int true)
 
 	if (!*a || !(*a)->next)
 		return ;
-	temp = selectnode(*a, listsize(*a) - 2);
+	temp = node(*a, listsize(*a) - 2);
 	temp->next->next = *a;
 	*a = temp->next;
 	temp->next = NULL;
@@ -36,7 +36,7 @@ void	rrb(t_list **b, int true)
 
 	if (!*b || !(*b)->next)
 		return ;
-	temp = selectnode(*b, listsize(*b) - 2);
+	temp = node(*b, listsize(*b) - 2);
 	temp->next->next = *b;
 	*b = temp->next;
 	temp->next = NULL;
