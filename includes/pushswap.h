@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:54 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/07 17:53:37 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/10 15:44:59 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	sort2(t_list **a);
 void	sort3(t_list **a);
 void	sort4(t_list **a, t_list **b);
 void	sort5(t_list **a, t_list **b);
+
+// RADIX SORT
+void	radix(t_list **a, t_list **b);
 
 // UTILS
 int		argreader(char *num);

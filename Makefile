@@ -7,6 +7,7 @@ SRCS = $(SRCS_DIR)/pushswap.c \
 	$(SRCS_DIR)/reverserotate.c \
 	$(SRCS_DIR)/pwutils.c \
 	$(SRCS_DIR)/sort.c \
+	$(SRCS_DIR)/radix.c \
 
 SRCS_DIR = srcs
 
@@ -14,7 +15,7 @@ OBJS = $(subst $(SRCS_DIR), $(OBJS_DIR), $(SRCS:.c=.o))
 
 OBJS_DIR = objs
 
-FLAGS = -g -Wextra -Wall -Werror -fsanitize=address
+FLAGS = -g -Wextra -Wall -Werror #-fsanitize=address
 CC = gcc
 RM = rm -fr
 NAME = push_swap

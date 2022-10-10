@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:51:46 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/07 17:03:49 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/10/10 15:44:33 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	main(int argc, char **argv)
 		sort4(stack(0), stack(1));
 	if (argc == 6)
 		sort5(stack(0), stack(1));
+	if (argc > 6)
+		radix(stack(0), stack(1));
 	a = *stack(0);
 	while (a)
 	{
