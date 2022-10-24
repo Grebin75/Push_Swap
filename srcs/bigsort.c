@@ -14,9 +14,9 @@
 
 int	getmaxdigit(t_list	**a)
 {
-	t_list *t;
-	int	max;
-	int	digit;
+	t_list	*t;
+	int		max;
+	int		digit;
 
 	digit = 0;
 	max = INT_MIN;
@@ -34,7 +34,7 @@ int	getmaxdigit(t_list	**a)
 
 int	getmax(t_list **a, int max, int digit)
 {
-	t_list *t;
+	t_list	*t;
 
 	t = *a;
 	max = INT_MIN;
@@ -47,7 +47,7 @@ int	getmax(t_list **a, int max, int digit)
 	return (max);
 }
 
-void	radix(t_list **a, t_list **b)
+/* void	radix(t_list **a, t_list **b)
 {
 	int	rolls;
 	int	digit;
@@ -59,5 +59,5 @@ void	radix(t_list **a, t_list **b)
 	printf("Digit: %i\n", rolls);
 	getmaxdigit(a);
 	printf("Max: %i\n", max);
-	//printf("DATA B: %i", (*stack(1))->data);
-}
+	printf("DATA B: %i", (*stack(1))->data);
+} */

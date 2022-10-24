@@ -26,27 +26,42 @@ int	checkdupe(int n, t_list *stack)
 	return (0);
 }
 
-int	argreader(char *num)
+int	ft_atoi(char **num)
 {
-	int		i;
 	long	n;
 	int		neg;
 
-	neg = (num[0] != '-') -(num[0] == '-');
+	neg = (**num != '-') -(**num == '-');
 	n = 0;
-	i = -1;
-	while (num[++i])
+	if (**num == '-' || **num == '+')
+		(*num) += 1;
+	while ((**num >= '0' && **num <= '9'))
 	{
-		if (i == 0 && (num[i] == '-' || num[i] == '+'))
-			i++;
-		if ((num[i] >= '0' && num[i] <= '9'))
-			n = (n * 10) + (neg * (num[i] - '0'));
-		else
+		n = (n * 10) + (neg * (**num - '0'));
+		(*num) += 1;
+		if (n < -2147483648 || n > 2147483647)
 			exitprog(1);
 	}
-	if (n < -2147483648 || n > 2147483647)
+	if (**num && (**num != 9 && **num != 10 && **num != 11
+			&& **num != 12 && **num != 13 && **num != 32))
 		exitprog(1);
 	if (checkdupe(n, (*stack(0))))
 		exitprog(1);
 	return (n);
+}
+
+void	checkargs(char *args)
+{
+	int	n;
+
+	while (args && *args)
+	{
+		while ((*args > 8 && *args < 14) || *args == ' ')
+			args++;
+		if ((*args == '+' || *args == '-') && !(*args + 1))
+			exitprog(1);
+		printf("PRE ATOI: %c\n", *args);
+		n = ft_atoi(&args);
+		printf("POS ATOI: %i\n", n);
+	}
 }

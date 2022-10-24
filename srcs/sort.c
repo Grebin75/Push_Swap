@@ -67,9 +67,9 @@ void	sort4(t_list **a, t_list **b)
 
 void	sort5(t_list **a, t_list **b)
 {
-	t_list *t;
-	int	max;
-	int	min;
+	t_list	*t;
+	int		max;
+	int		min;
 
 	(void)b;
 	min = (*a)->data;

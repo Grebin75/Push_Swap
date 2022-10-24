@@ -56,7 +56,7 @@ void	sort5(t_list **a, t_list **b);
 void	radix(t_list **a, t_list **b);
 
 // UTILS
-int		argreader(char *num);
+void	checkargs(char *args);
 void	exitprog(int c);
 t_list	**stack(char c);
 #endif
