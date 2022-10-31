@@ -35,10 +35,29 @@ t_list	**stack(char c)
 int	main(int argc, char **argv)
 {
 	int		i;
+	t_list	*a;
 
 	(void)argc;
 	i = 0;
 	while (argv[++i])
 		checkargs(argv[i]);
+	if (listsize(*stack(0)) < 2)
+		exitprog(0);
+	if (listsize(*stack(0)) == 2)
+		sort2(stack(0));
+	if (listsize(*stack(0)) == 3)
+		sort3(stack(0));
+	if (listsize(*stack(0)) == 4)
+		sort4(stack(0), stack(1));
+	if (listsize(*stack(0)) == 5)
+		sort5(stack(0), stack(1));
+	a = *stack(0);
+	while (a)
+	{
+		printf("%i\n", a->data);
+		a = a->next;
+	}
+	/* if (listsize(*stack(0)) == 3)
+		bigsort(*stack(0), *stack(1)); */
 	exitprog(0);
 }

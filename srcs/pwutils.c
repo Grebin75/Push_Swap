@@ -45,8 +45,6 @@ int	ft_atoi(char **num)
 	if (**num && (**num != 9 && **num != 10 && **num != 11
 			&& **num != 12 && **num != 13 && **num != 32))
 		exitprog(1);
-	if (checkdupe(n, (*stack(0))))
-		exitprog(1);
 	return (n);
 }
 
@@ -54,14 +52,18 @@ void	checkargs(char *args)
 {
 	int	n;
 
+	if (!*args)
+		exitprog(1);
 	while (args && *args)
 	{
 		while ((*args > 8 && *args < 14) || *args == ' ')
 			args++;
-		if ((*args == '+' || *args == '-') && !(*args + 1))
+		if ((*args == '+' || *args == '-') && \
+		(*(args + 1) < '0' || *(args + 1) > '9'))
 			exitprog(1);
-		printf("PRE ATOI: %c\n", *args);
 		n = ft_atoi(&args);
-		printf("POS ATOI: %i\n", n);
+		if (checkdupe(n, (*stack(0))))
+			exitprog(1);
+		addtolast(stack(0), createnode(n));
 	}
 }

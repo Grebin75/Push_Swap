@@ -18,6 +18,8 @@ int	listsize(t_list *list)
 	int		i;
 
 	i = 0;
+	if (!list)
+		return (0);
 	while (list->next && ++i)
 		list = list->next;
 	return (++i);
