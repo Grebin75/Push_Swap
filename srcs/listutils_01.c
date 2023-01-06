@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:02 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/07 12:19:14 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:10:45 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*createnode(int data)
 	objs = malloc(sizeof(t_list));
 	if (!objs)
 		return (NULL);
+	objs->index = -1;
 	objs->data = data;
 	objs->next = NULL;
 	return (objs);

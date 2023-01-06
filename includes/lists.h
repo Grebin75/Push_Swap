@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:19:20 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/07 12:18:56 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:52:58 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list	t_list;
 struct s_list
 {
 	int		data;
+	int		index;
 	t_list	*next;
 };
 

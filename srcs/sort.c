@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:58:57 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/10 13:44:06 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:12:22 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	maxmin(t_list *a, int *min, int *max)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	temp = a;
 	while (temp)
@@ -45,9 +45,9 @@ void	sort3(t_list **a)
 
 void	sort4(t_list **a, t_list **b)
 {
-	t_list *t;
-	int	max;
-	int	min;
+	t_list	*t;
+	int		max;
+	int		min;
 
 	min = (*a)->data;
 	max = (*a)->data;

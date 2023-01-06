@@ -6,18 +6,32 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:37:38 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/06 15:40:22 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:12:38 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
+
+int	sorted(t_list	*stack)
+{
+	t_list	*temp;
+
+	temp = stack;
+	while (temp && temp->next)
+	{
+		if (temp->data > temp->next->data)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
 
 int	checkdupe(int n, t_list *stack)
 {
 	t_list	*temp;
 
 	temp = stack;
-	while (temp && temp->next)
+	while (temp)
 	{
 		if (temp->data == n)
 			return (1);
@@ -61,9 +75,14 @@ void	checkargs(char *args)
 		if ((*args == '+' || *args == '-') && \
 		(*(args + 1) < '0' || *(args + 1) > '9'))
 			exitprog(1);
+		while ((*args > 8 && *args < 14) || *args == ' ')
+			args++;
+		if (!*args)
+			break ;
 		n = ft_atoi(&args);
 		if (checkdupe(n, (*stack(0))))
 			exitprog(1);
-		addtolast(stack(0), createnode(n));
+		if (!addtolast(stack(0), createnode(n)))
+			exitprog(1);
 	}
 }

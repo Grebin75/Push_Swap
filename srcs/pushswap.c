@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:51:46 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/10 15:44:33 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:11:11 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	exitprog(int n)
 		write(2, "Error\n", 7);
 	rmlist(stack(0));
 	rmlist(stack(1));
-	exit (0);
+	exit (n);
 }
 
 t_list	**stack(char c)
@@ -35,12 +35,13 @@ t_list	**stack(char c)
 int	main(int argc, char **argv)
 {
 	int		i;
-	t_list	*a;
 
 	(void)argc;
 	i = 0;
 	while (argv[++i])
 		checkargs(argv[i]);
+	if (!sorted(*stack(0)))
+		exitprog(0);
 	if (listsize(*stack(0)) < 2)
 		exitprog(0);
 	if (listsize(*stack(0)) == 2)
@@ -51,13 +52,7 @@ int	main(int argc, char **argv)
 		sort4(stack(0), stack(1));
 	if (listsize(*stack(0)) == 5)
 		sort5(stack(0), stack(1));
-	a = *stack(0);
-	while (a)
-	{
-		printf("%i\n", a->data);
-		a = a->next;
-	}
-	/* if (listsize(*stack(0)) == 3)
-		bigsort(*stack(0), *stack(1)); */
+	if (listsize(*stack(0)) > 5)
+		bigalgo(stack(0), stack(1));
 	exitprog(0);
 }

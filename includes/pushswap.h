@@ -6,7 +6,7 @@
 /*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:44:54 by hcoutinh          #+#    #+#             */
-/*   Updated: 2022/10/10 15:44:59 by hcoutinh         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:12:58 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ void	sort4(t_list **a, t_list **b);
 void	sort5(t_list **a, t_list **b);
 
 // RADIX SORT
-void	radix(t_list **a, t_list **b);
+void	bigalgo(t_list **a, t_list **b);
 
 // UTILS
 void	checkargs(char *args);
 void	exitprog(int c);
 t_list	**stack(char c);
+int		sorted(t_list	*stack);
 #endif
